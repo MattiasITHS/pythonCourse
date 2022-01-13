@@ -83,3 +83,38 @@ my_dict["key1"] = "NEW VALUE"
 print(my_dict)
 print(my_dict.values())
 print(my_dict.keys())
+
+t = (1, 2, 3)
+print(t)
+# t[0] = 2  assignments doesnt work
+
+myset = set()
+myset.add(1)
+print(myset)
+myset.add(2)
+print(myset)
+myset.add(2)  # <---- wont add the second 2. sets are unique collections
+myset = set('Mississippi')  # returning s p i M
+print(myset)
+
+# ---- Booleans
+
+a = 1 > 2
+b = 1 == 1
+print(a)
+print(b)
+
+with open('test.txt', mode='r') as f:
+    print(f.read())
+#with open('test.txt', mode='a') as f:
+    #f.write('\nHej världen')
+#with open('test.txt', mode='r') as f:
+    #print(f.read())
+#with open('newFile', mode='w') as f:    SKAPAR EN NY TXT FIL
+      #f.write('I CREATED THIS FILE')
+with open('newFile', mode='r') as f:
+    print(f.read())
+myfile = open('test.txt', 'w')
+myfile.write('testing')
+myfile.close()
+
