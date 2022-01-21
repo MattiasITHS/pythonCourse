@@ -430,17 +430,18 @@ print(check_stock(stock_prices))
 
 # --------- ARGS
 
-def myfunc(*args): #------ tuple can take unlimited of inputs. * with any argument
+def myfunc(*args):  # ------ tuple can take unlimited of inputs. * with any argument
     return sum(args) * 0.05
 
 
 print(myfunc(100, 100, 100, 100, 100))
 
+
 # ---------- KWARGS
 
-def myfunc2(**kwargs): #------ dictonary
+def myfunc2(**kwargs):  # ------ dictonary
     print(kwargs)
-    if'fruit' in kwargs:
+    if 'fruit' in kwargs:
         print('My fruit of choice is {}'.format(kwargs['fruit']))
     else:
         print('I did not find any fruit here')
@@ -448,12 +449,14 @@ def myfunc2(**kwargs): #------ dictonary
 
 print(myfunc2(fruit='apple', veggie='lettuce'))
 
-def myfunc3(*args,**kwargs):
+
+def myfunc3(*args, **kwargs):
     print(args)
     print(kwargs)
-    print('I would like {} {}'.format(args[0],kwargs['food']))
+    print('I would like {} {}'.format(args[0], kwargs['food']))
 
-print(myfunc3(10,20,30, fruit='orange', food ='eggs', animal='dog'))
+
+print(myfunc3(10, 20, 30, fruit='orange', food='eggs', animal='dog'))
 
 
 def my_even_func(*args):
@@ -464,16 +467,67 @@ def my_even_func(*args):
     return mylist
 
 
-print(my_even_func(1,2,3,4,5,6))
+print(my_even_func(1, 2, 3, 4, 5, 6))
+
 
 def my_string_func(args):
     string = ''
-    for letter in range(0,len(args)):
+    for letter in range(0, len(args)):
         if letter % 2 == 0:
             string = string + args[letter].lower()
         else:
             string = string + args[letter].upper()
     return string
 
+
 print(my_string_func('MATTIAS'))
 
+
+# ----------- MAP
+
+def square(num):
+    return num ** 2
+
+
+my_num = [1, 2, 3, 4, 5]
+for item in map(square, my_num):
+    print(item)
+print(list(map(square, my_num)))
+
+
+def splicer(mystring):
+    if len(mystring) % 2 == 0:
+        return 'EVEN'
+    else:
+        return mystring[0]
+
+
+names = ['Mattias', 'Theo', 'Ines', 'Cassandra']
+print(list(map(splicer, names)))
+
+
+# ------------------- FILTER
+def check_even(nums):
+    return nums % 2 == 0
+
+
+my_num = [1, 2, 3, 4, 5, 6]
+print(list(filter(check_even, my_num)))
+for i in filter(check_even, my_num):
+    print(i)
+
+
+def square2(num):
+    result = num ** 2
+    return result
+
+#----------------- LAMBDA
+lambda num: num ** 2
+
+print(list(map(lambda num : num ** 2,my_num)))
+
+print(list(filter(lambda num : num % 2 == 0,my_num)))
+
+print(list(map(lambda x:x[::1], names)))
+
+#----------------- NESTED STATEMENT AND SCOPE
